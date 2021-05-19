@@ -1,0 +1,18 @@
+version: "2.2"
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.development
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www
+    environment:
+      - APP_KEY=base64:tnMuN9eCpEx4H61Th7USx3Iu+X1Dfz40XWgbwngslfU=
+      - APP_ENV=development
+      - APP_DEBUG=true
+      - APACHE_RUN_USER=apache-www-volume
+      - APACHE_RUN_GROUP=apache-www-volume
+      - UNSPLASH_ACCESS_KEY=b9aaiElHY0psuJLwRR-rcXTvQUvgeruevlWSewTXPUE
+      - UNSPLASH_SECRET_KEY=fgNrswlbO-pRMNkH1-z2-Ie4lEskuBskH5ca-peTN0g
